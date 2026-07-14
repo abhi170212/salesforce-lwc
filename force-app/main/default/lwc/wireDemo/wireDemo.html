@@ -1,0 +1,18 @@
+<template>
+    <p>THis is the wire demo</p>
+    <p> 
+          The message we got from the Apex class is : {message}
+    </p>
+
+    <div>
+     <template if:true={record.data}>
+     <lightning-card title="wire-demo">
+          <h1>This is the new one</h1>
+          <p>Name : {name}</p>
+          <p>Title : {title}</p>
+          <p>Department : {department}</p> 
+     </lightning-card>
+     </template>
+    </div>
+
+</template>

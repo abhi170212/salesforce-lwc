@@ -1,0 +1,12 @@
+<template>
+     <lightning-card>
+    <hr>
+     <p>My message {myMessage}</p>
+    <hr></hr>
+    <p>My RecordID: {recordID}</p>
+    </lightning-card>
+    <div>
+     <lightning-input value={myMessage} onchange={handleInputChange} label="Enter something to display">
+     </lightning-input>
+    </div>
+</template>

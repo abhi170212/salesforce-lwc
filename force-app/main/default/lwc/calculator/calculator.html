@@ -1,3 +1,53 @@
 <template>
-    
+    <lightning-card title="My Calculator"  icon-name="utility:connected_apps">
+<!-------------------FIRST ITEM-------------------------------->
+     <lightning-layout>
+          <lightning-layout-item flexibility="auto" padding="around-medium">
+               <lightning-input label="First Number" name="fnum" type="number" step="any" onchange={handleChange}></lightning-input>
+          </lightning-layout-item>
+
+           <lightning-layout-item flexibility="auto" padding="around-medium">
+               <lightning-input label="Second Number" name="snum" type="number" step="any" onchange={handleChange}></lightning-input>
+          </lightning-layout-item>
+
+     </lightning-layout>
+<!---------------------------------FIRST ITEM ENDS-------------------------------------------- -->
+
+<!------------------------------SECOND ITEM-------------------------->
+      <lightning-layout>
+          <lightning-layout-item flexibility="auto" padding="around-medium">
+               <lightning-button-group>
+                    <lightning-button label="Addition" name="add" onclick={calculation}> </lightning-button>
+                    <lightning-button label="Subtraction" name="sub" onclick={calculation}> </lightning-button>
+                    <lightning-button label="Multiplication" name="mul" onclick={calculation}> </lightning-button>
+                    <lightning-button label="Division" name="div" onclick={calculation}> </lightning-button>
+               </lightning-button-group>
+          </lightning-layout-item>
+
+          <lightning-layout-item>
+                    <lightning-button  label="Show All" variant="success" name="all" onclick={showCalculation}></lightning-button>
+          </lightning-layout-item>
+
+      </lightning-layout>
+<!-- ----------SECOND ITEM ENDS--------------------------------- -->
+ <lightning-layout-item>
+ <lightning-formatted-number flexibility="auto" padding="around-medium" value={result}></lightning-formatted-number>
+
+ </lightning-layout-item>
+<!-- ----THIRD ITEM STARTED---------------------------------------->
+ 
+ <template if:true={isShowAllChecked}>
+     <ul>
+          <template iterator:it={calArray}>
+               <li key={it.value}>
+                         <div if:true={it.first} class="slds-border_top"></div>
+                          <lightning-formatted-number flexibility="auto" padding="around-medium" value={it.value}></lightning-formatted-number>
+                          <div if:true={it.last} class="slds-border_bottom"></div>
+               </li>
+          </template>
+     </ul>
+ </template>
+
+ <!-- --------------------------------------------------------------------- -->
+    </lightning-card>
 </template>

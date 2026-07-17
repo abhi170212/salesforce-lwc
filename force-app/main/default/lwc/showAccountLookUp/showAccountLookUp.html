@@ -7,8 +7,23 @@
             object-api-name="Account"
             filter={filter}
             display-info={displayInfo}
-            matching-info={matchingInfo}>
+            matching-info={matchingInfo}
+            onchange={handleChange}>
         </lightning-record-picker>
 
     </lightning-card>
+
+    
+<template if:true={showContactTable}>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-datatable
+                key-field="Id"
+                data={contactList}
+                columns={columns}>
+            </lightning-datatable>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
+
 </template>

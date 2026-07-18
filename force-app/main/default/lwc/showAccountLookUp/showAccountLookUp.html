@@ -8,22 +8,34 @@
             filter={filter}
             display-info={displayInfo}
             matching-info={matchingInfo}
-            onchange={handleChange}>
+            onchange={handleChange}
+            >
         </lightning-record-picker>
 
     </lightning-card>
 
-    
+
 <template if:true={showContactTable}>
     <lightning-layout>
         <lightning-layout-item>
             <lightning-datatable
                 key-field="Id"
                 data={contactList}
-                columns={columns}>
+                columns={columns}
+                onrowselection={handleRowSelection}> 
             </lightning-datatable>
         </lightning-layout-item>
     </lightning-layout>
+    <!-- ----------------------------------------------------------------- -->
+    <template if:true={showPinner}>
+        <div class="slds-box slds-text-align_center">
+            <lightning-spinner size="large" alternative-text="Loading"></lightning-spinner>
+        </div>
+    </template>
+    <!-- ----------------------------------------------------------- -->
+    <div style="text-align:center">
+        <lightning-button label="Delete" onclick={handleDelete} variant="destructive"></lightning-button>
+    </div>
+    <!-- -------------------------------------------------------- -->
 </template>
-
 </template>
